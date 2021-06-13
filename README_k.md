@@ -28,13 +28,10 @@ see `environment.yaml`
 
 **Datasets:**
 
-Covid19 death rates per US county
-Census bureau acs per county
-US Healthcare Capacity per county
+- Covid19 death rates per US county (covid = covid19_nyt_us_counties.csv)
+- Census bureau acs per county (census = census_bureau_acs_county_2018_5yr.csv)
+- US Healthcare Capacity per county (healthcare = us_healthcare_capacity-county-CovidCareMap.csv)
 
-covid = pd.read_csv('../data/covid19_nyt_us_counties.csv')
-census = pd.read_csv('../data/census_bureau_acs_county_2018_5yr.csv')
-healthcare = pd.read_csv('../data/us_healthcare_capacity-county-CovidCareMap.csv')
 
 **Primary goals:**
 
