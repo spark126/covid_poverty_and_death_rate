@@ -8,17 +8,15 @@ In order to be able to more accurately determine which communities will be hit h
 2. [Data Cleaning](#data-cleaning)
 3. [Exploratory Data Analysis](#exploratory-data-analysis)
 4. [Modeling](#modeling)
-5. [Analysis](#analysis)
-6. [Results & Conclusions](#results-&-conclusions)
-7. [Data Dictionary](#data-dictionary)
+5. [Results & Conclusions](#results-&-conclusions)
+6. [Data Dictionary](#data-dictionary)
 
 ### Executive Summary
 
-**Covid 19**
 
 COVID-19 is caused by a coronavirus called SARS-CoV-2. Older adults and people who have severe underlying medical conditions like heart or lung disease or diabetes seem to be at higher risk for developing more serious complications from COVID-19 illness.
 
-This once in a lifetime global health crisis resulted in large loss of life (3,786,968 deaths of people worldwide at the time this is being written, and 599,510 deaths in the United States). Our analysis sets out to predict the death rate depending upon various demographic factors contained with the US Census and New York Times COVID-19 datasets. We suspected that lower income communities would be affected COVID-19 might  we also wanted to use poverty rate as a target for another set of models. 
+This once in a lifetime global health crisis resulted in large loss of life (3,786,968 deaths of people worldwide at the time this is being written, and 599,510 deaths in the United States). Our analysis sets out to predict the death rate depending upon various demographic factors contained within the US Census and New York Times COVID-19 datasets. We suspected that lower income communities would be more greatly impacted by COVID-19, so we also wanted to use poverty rate as a target for another set of models in order to determine the features that are most indicative of poverty rate.
 
 
 
@@ -30,53 +28,35 @@ see `environment.yaml`
 
 **Datasets:**
 
-Covid19 death rates per US county
-Census bureau acs per county
-US Healthcare Capacity per county
+- Covid19 death rates per US county (covid = covid19_nyt_us_counties.csv)
+- Census bureau acs per county (census = census_bureau_acs_county_2018_5yr.csv)
+- US Healthcare Capacity per county (healthcare = us_healthcare_capacity-county-CovidCareMap.csv)
 
-covid = pd.read_csv('../data/covid19_nyt_us_counties.csv')
-census = pd.read_csv('../data/census_bureau_acs_county_2018_5yr.csv')
-healthcare = pd.read_csv('../data/us_healthcare_capacity-county-CovidCareMap.csv')
 
 **Primary goals:**
 
 - drop columns with more than 100 null values
 - impute mean for columns used in modelling
-
+- keep as many rows as possible
 
 
 ### Exploratory Data Analysis
 
 - We will use all hospital bed occupancy rate in our models so we impute the mean and all other rows are dropped
 - Group covid data by fips code to give us the most recent covid information for each county which is from 6/3
+- Create variables for `death_rate`, `poverty_rate`
 - Visualize heatmap correlations
-- Add leading zeros too county fips codes for use in choropleth maps
-
-**For death_rate:**
-
-- We are trying to predict death rate, so we need to compute deaths from covid divided by confirmed cases
-- extract feature importances from Random Forest
-
-**For poverty_rate:**
+- Add leading zeros to county fips codes for use in choropleth maps
 
 
 ### Modeling
 
 **For death_rate:**
 
+- Scale X and y
 - Random Forest Regressor
-- 
-
-**For poverty_rate:**
-
-
-
-### Analysis
-
-**For death_rate:**
-
-- We are trying to predict death rate, so we need to compute deaths from covid divided by confirmed cases
-- extract feature importances from Random Forest
+- Features: top 20 feature importances
+- Make death rate predictions, plot against actual values
 
 **For poverty_rate:**
 
@@ -91,6 +71,7 @@ healthcare = pd.read_csv('../data/us_healthcare_capacity-county-CovidCareMap.csv
 - Best Score:  0.36030836413930434
 - Cross Val Score 0.36030836413930434 +/- 0.0684718488109917
 - Test Score:  0.3624652029664446
+- Baseline RMSE: .00778
 
 *Conclusions*
 
