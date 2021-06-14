@@ -1,17 +1,17 @@
-### Problem Statement
+## Problem Statement
 
 In order to be able to more accurately determine which communities will be hit hardest in a future pandemic, we set out to use covid-related statistics to predict poverty and death rates in counties across United States. If we can establish a good model then we can infer that Covid rates differ by poverty, which can then in turn help look for issues within counties and states to increase health care and accessibility.
 
-### Table of Contents
+## Table of Contents
 
 1. [Executive Summary](#executive-summary)
 2. [Data Cleaning](#data-cleaning)
 3. [Exploratory Data Analysis](#exploratory-data-analysis)
 4. [Modeling](#modeling)
 5. [Results & Conclusions](#results-&-conclusions)
-6. [Data Dictionary](#data-dictionary)
+7. [Data Dictionary](#data-dictionary)
 
-### Executive Summary
+## Executive Summary
 
 
 COVID-19 is caused by a coronavirus called SARS-CoV-2. Older adults and people who have severe underlying medical conditions like heart or lung disease or diabetes seem to be at higher risk for developing more serious complications from COVID-19 illness.
@@ -20,27 +20,27 @@ This once in a lifetime global health crisis resulted in large loss of life (3,7
 
 
 
-### Data Cleaning
+## Data Cleaning
 
-**Imports required:**
+### Imports required
 
 see `environment.yaml`
 
-**Datasets:**
+### Datasets:
 
 - Covid19 death rates per US county (covid = covid19_nyt_us_counties.csv)
 - Census bureau acs per county (census = census_bureau_acs_county_2018_5yr.csv)
 - US Healthcare Capacity per county (healthcare = us_healthcare_capacity-county-CovidCareMap.csv)
 
 
-**Primary goals:**
+### Primary goals:
 
 - drop columns with more than 100 null values
 - impute mean for columns used in modelling
 - keep as many rows as possible
 
 
-### Exploratory Data Analysis
+## Exploratory Data Analysis
 
 - We will use all hospital bed occupancy rate in our models so we impute the mean and all other rows are dropped
 - Group covid data by fips code to give us the most recent covid information for each county which is from 6/3
@@ -49,22 +49,28 @@ see `environment.yaml`
 - Add leading zeros to county fips codes for use in choropleth maps
 
 
-### Modeling
+## Modeling
 
-**For death_rate:**
+### For poverty_rate:
+**Feature Selection:**
+
+We Selecting features was difficult when predicting poverty rates. Most of the features in the census data were directly related to poverty rate in some way. Including them could lead to data leakage. For instance the `worked_from_home` feature is related to poverty rate because the jobs you can do from home are going to inherently be higher paying. Low wage jobs typically can't be done from home. We ended up using mostly demographic data about race and households. The model that performed the best was a random forest regressor. As you can see the percent of the population that is black is by far the most important predictor for poverty rate.
+![Feature Importances for Predicting Poverty](./img/poverty_feature_importances.png)
+
+**Trouble Ahead, Trouble Behind:**
+
+Due to features selected this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
+
+### For death_rate:
 
 - Scale X and y
 - Random Forest Regressor
 - Features: top 20 feature importances
 - Make death rate predictions, plot against actual values
 
-**For poverty_rate:**
 
+## Results & Conclusions
 
-
-### Results & Conclusions
-
-**For death_rate:**
 
 *Random Forest Regressor using feature importances:*
 
@@ -77,10 +83,8 @@ see `environment.yaml`
 
 Since the plotted residuals are close to normally distributed, we can infer that the features used in this model are good predictors of death rate. For real world application, we can see that it is important to provide assistance to people living in close quarters and people in states of poverty. One can infer that death rate is closely tied to determiners of poverty.
 
-**For poverty_rate:**
 
-
-### Data Dictionary
+## Data Dictionary
 
 |Feature|Type|Dataset|Description|
 |---|---|---|---|
