@@ -8,7 +8,7 @@ In order to be able to more accurately determine which communities will be hit h
 2. [Data Cleaning](#data-cleaning)
 3. [Exploratory Data Analysis](#exploratory-data-analysis)
 4. [Modeling](#modeling)
-5. [Results & Conclusions](#results-&-conclusions)
+5. [Results & Conclusions](#results-and-conclusions)
 7. [Data Dictionary](#data-dictionary)
 
 ## Executive Summary
@@ -70,10 +70,10 @@ Due to the features selected, this initial investigation into predicting poverty
 
 
 
-## Results & Conclusions
+## Results and Conclusions
 
 
-*Voting Regressor using feature importances:*
+**Voting Regressor using feature importances:**
 
 - Cross Val Score 0.3596772082727179 +/- 0.04760577126862348
 - Test Score:  0.3642262108365024
@@ -81,10 +81,18 @@ Due to the features selected, this initial investigation into predicting poverty
 - Model RMSE:     0.00712
 - Improvement:    0.00181
 
-*Conclusions*
+**Conclusions**
 
 Since the plotted residuals are close to normally distributed, we can infer that the features used in this model are good predictors of death rate. For real world application, we can see that it is important to provide assistance to people living in close quarters and people in states of poverty. One can infer that death rate is closely tied to determiners of poverty.
 
+Poverty rates and covid death rates are closely intertwined. Features such as the percent of the population that is black and percent of population living in low income housing stood out as the most important factors for our models when predicting death rates. This might be due to the difficulty in accessing healthcare in the U.S.A. Having more money tends to mean having access to quality care. While it's no surprise that disadvantaged communities would have a harder time accessing quality healthcare our project shows that when the next pandemic hits lives can be saved if we allocate funds to poorer communities.
+
+**Next Steps**
+
+- Looking at insurance rates vs death rates
+- pop working in service industry vs death rates
+- sentiment analysis of political ideations in higher death rate communities
+- looking at top news outlets (funding?) in high death rate communities
 
 ## Data Dictionary
 
