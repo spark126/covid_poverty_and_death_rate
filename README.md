@@ -9,7 +9,11 @@ In order to be able to more accurately determine which communities will be hit h
 3. [Exploratory Data Analysis](#exploratory-data-analysis)
 4. [Modeling](#modeling)
 5. [Results & Conclusions](#results-&-conclusions)
+<<<<<<< HEAD
 6. [Data Dictionary](#data-dictionary)
+=======
+7. [Data Dictionary](#data-dictionary)
+>>>>>>> 894ef71275997f50db5e8c3f4ca127cc95fc4e29
 
 ## Executive Summary
 
@@ -22,7 +26,11 @@ This once in a lifetime global health crisis resulted in large loss of life (3,7
 
 ## Data Cleaning
 
+<<<<<<< HEAD
 ### Imports required:
+=======
+### Imports required
+>>>>>>> 894ef71275997f50db5e8c3f4ca127cc95fc4e29
 
 see `environment.yaml`
 
@@ -59,7 +67,11 @@ We Selecting features was difficult when predicting poverty rates. Most of the f
 
 **Trouble Ahead, Trouble Behind:**
 
+<<<<<<< HEAD
 Due to features selected this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
+=======
+Due to the features selected, this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
+>>>>>>> 894ef71275997f50db5e8c3f4ca127cc95fc4e29
 
 ### For death_rate:
 
@@ -71,7 +83,10 @@ Due to features selected this initial investigation into predicting poverty rate
 
 ## Results & Conclusions
 
+<<<<<<< HEAD
 ### For death_rate:
+=======
+>>>>>>> 894ef71275997f50db5e8c3f4ca127cc95fc4e29
 
 *Random Forest Regressor using feature importances:*
 
@@ -84,8 +99,11 @@ Due to features selected this initial investigation into predicting poverty rate
 
 Since the plotted residuals are close to normally distributed, we can infer that the features used in this model are good predictors of death rate. For real world application, we can see that it is important to provide assistance to people living in close quarters and people in states of poverty. One can infer that death rate is closely tied to determiners of poverty.
 
+<<<<<<< HEAD
 ### For poverty_rate:
 
+=======
+>>>>>>> 894ef71275997f50db5e8c3f4ca127cc95fc4e29
 
 ## Data Dictionary
 
