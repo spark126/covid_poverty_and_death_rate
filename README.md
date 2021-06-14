@@ -59,7 +59,7 @@ We Selecting features was difficult when predicting poverty rates. Most of the f
 
 **Trouble Ahead, Trouble Behind:**
 
-Due to features selected this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
+Due to the features selected, this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
 
 ### For death_rate:
 
