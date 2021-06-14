@@ -51,6 +51,16 @@ see `environment.yaml`
 
 ## Modeling
 
+### For poverty_rate:
+**Feature Selection:**
+
+We Selecting features was difficult when predicting poverty rates. Most of the features in the census data were directly related to poverty rate in some way. Including them could lead to data leakage. For instance the `worked_from_home` feature is related to poverty rate because the jobs you can do from home are going to inherently be higher paying. Low wage jobs typically can't be done from home. We ended up using mostly demographic data about race and households. The model that performed the best was a random forest regressor. As you can see the percent of the population that is black is by far the most important predictor for poverty rate.
+![Feature Importances for Predicting Poverty](./img/poverty_feature_importances.png)
+
+**Trouble Ahead, Trouble Behind:**
+
+Due to features selected this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
+
 ### For death_rate:
 
 - Scale X and y
@@ -58,10 +68,6 @@ see `environment.yaml`
 - Features: top 20 feature importances
 - Make death rate predictions, plot against actual values
 
-### For poverty_rate:
-**Feature Selection**
-  Selecting features was difficult when predicting poverty rates. Most of the features in the census data were related directly to poverty rate in some way. For instance the `worked_from_home` feature is correlated with poverty rate because the jobs you can do from home are going to inherently be higher paying. Low wage jobs typically can't be done from home.
-  
 
 ## Results & Conclusions
 
