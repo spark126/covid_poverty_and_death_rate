@@ -54,12 +54,11 @@ see `environment.yaml`
 ### For poverty_rate:
 **Feature Selection:**
 
-We Selecting features was difficult when predicting poverty rates. Most of the features in the census data were directly related to poverty rate in some way. Including them could lead to data leakage. For instance the `worked_from_home` feature is related to poverty rate because the jobs you can do from home are going to inherently be higher paying. Low wage jobs typically can't be done from home. We ended up using mostly demographic data about race and households. The model that performed the best was a random forest regressor. As you can see the percent of the population that is black is by far the most important predictor for poverty rate.
-![Feature Importances for Predicting Poverty](./img/poverty_feature_importances.png)
+We Selecting features was difficult when predicting poverty rates. Most of the features in the census data were directly related to poverty rate in some way. Including them could lead to data leakage. For instance the `worked_from_home` feature is related to poverty rate because the jobs you can do from home are going to inherently be higher paying. Low wage jobs typically can't be done from home. We ended up using mostly demographic data about race and households. The model that performed the best was a random forest regressor.
 
 **Trouble Ahead, Trouble Behind:**
 
-Due to the features selected, this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
+Due to the demographic features selected, this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
 
 ### For death_rate:
 - Scaled X and y using StandardScaler
@@ -83,16 +82,14 @@ Due to the features selected, this initial investigation into predicting poverty
 
 **Conclusions**
 
-Since the plotted residuals are close to normally distributed, we can infer that the features used in this model are good predictors of death rate. For real world application, we can see that it is important to provide assistance to people living in close quarters and people in states of poverty. One can infer that death rate is closely tied to determiners of poverty.
-
-Poverty rates and covid death rates are closely intertwined. Features such as the percent of the population that is black and percent of population living in low income housing stood out as the most important factors for our models when predicting death rates. This might be due to the difficulty in accessing healthcare in the U.S.A. Having more money tends to mean having access to quality care. While it's no surprise that disadvantaged communities would have a harder time accessing quality healthcare our project shows that when the next pandemic hits lives can be saved if we allocate funds to poorer communities.
+Poverty rates and covid death rates are closely intertwined. Features such as the percent of population living in low income housing stood out as the most important factors for our models when predicting death rates. This might be due to the difficulty in accessing healthcare in the U.S.A. Having more money tends to mean having access to quality care. Our project supports the notion that when the next pandemic hits lives can be saved if we allocate funds to poorer communities.
 
 **Next Steps**
 
-- Looking at insurance rates vs death rates
-- pop working in service industry vs death rates
-- sentiment analysis of political ideations in higher death rate communities
-- looking at top news outlets (funding?) in high death rate communities
+- Look at insurance coverage vs death rates
+- Look at percent of population working in service industry vs death rates
+- Sentiment analysis of political ideations in higher death rate communities
+- Look at top news outlets in communities vs death rate
 
 ## Data Dictionary
 
