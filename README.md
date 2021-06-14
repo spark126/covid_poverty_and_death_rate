@@ -1,6 +1,6 @@
 ## Problem Statement
 
-In order to be able to more accurately determine which communities will be hit hardest in a future pandemic, we set out to use covid-related statistics to predict poverty and death rates in counties across United States. If we can establish a good model then we can infer that Covid rates differ by poverty, which can then in turn help look for issues within counties and states to increase health care and accessibility.
+In order to be able to more accurately determine which communities will be hit hardest in a future pandemic, we set out to use covid-related statistics to predict poverty and death rates in counties across United States. If we can establish a good model then we can identify different idicators of Covid death rates, which can then in turn help look for issues within counties and states to increase health care and accessibility.
 
 ## Table of Contents
 
@@ -42,11 +42,11 @@ see `environment.yaml`
 
 ## Exploratory Data Analysis
 
-- We will use all hospital bed occupancy rate in our models so we impute the mean and all other rows are dropped
-- Group covid data by fips code to give us the most recent covid information for each county which is from 6/3
+- We used 'all bed occupancy rate' from the healthcare dataset in our models so we imputed the mean and all other rows from this dataset were dropped due to high collinearity
+- Grouped covid data by fips code to give us the most recent covid information for each county which was from 6/3
 - Create variables for `death_rate`, `poverty_rate`
-- Visualize heatmap correlations
-- Add leading zeros to county fips codes for use in choropleth maps
+- Visualized heatmap correlations
+- Added leading zeros to county fips codes for use in choropleth maps
 
 
 ## Modeling
@@ -62,22 +62,24 @@ We Selecting features was difficult when predicting poverty rates. Most of the f
 Due to the features selected, this initial investigation into predicting poverty rates turned into more of an exposé of systemic racism in america. While the results are interesting they do not support our goal of determining which communites have a high chance of being adversly affected by future pandemics. Because of this we decided to use census data to predict death rates instead.
 
 ### For death_rate:
-
-- Scale X and y
-- Random Forest Regressor
+- Scaled X and y using StandardScaler
+- Multiple initial models: Linear Regression, Random Forest Regressor, Ada Boost Regressor, Gradient Boosting Regressor, Voting Regressor
+- Selected Model: Random Forest Regressor
 - Features: top 20 feature importances
 - Make death rate predictions, plot against actual values
+
 
 
 ## Results & Conclusions
 
 
-*Random Forest Regressor using feature importances:*
+*Voting Regressor using feature importances:*
 
-- Best Score:  0.36030836413930434
-- Cross Val Score 0.36030836413930434 +/- 0.0684718488109917
-- Test Score:  0.3624652029664446
-- Baseline RMSE: .00778
+- Cross Val Score 0.3596772082727179 +/- 0.04760577126862348
+- Test Score:  0.3642262108365024
+- Baseline RMSE:  0.00893
+- Model RMSE:     0.00712
+- Improvement:    0.00181
 
 *Conclusions*
 
